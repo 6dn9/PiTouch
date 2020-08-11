@@ -81,6 +81,7 @@ int main()
 				dG = 0;
 				dB = 0;
 				printf("Red\n");
+				printf("%f\n", testEvent.tfinger.x);
 			}
 			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dCenter.x && testEvent.tfinger.x <= (dCenter.x+ dCenter.w))
 			{
@@ -88,12 +89,15 @@ int main()
 				dG = 255;
 				dB = 0;
 				printf("Green\n");
-			}if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dRight.x && testEvent.tfinger.x <= (dRight.x+ dRight.w))
+				printf("%f\n", testEvent.tfinger.x);
+			}
+			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dRight.x && testEvent.tfinger.x <= (dRight.x+ dRight.w))
 			{
 				dR = 0;
 				dG = 0;
 				dB = 255;
 				printf("Blue\n");
+				printf("%f\n", testEvent.tfinger.x);
 			}
 		}
 		SDL_Delay(10);
