@@ -64,6 +64,7 @@ int main()
 		drawBox(renderer, 0,0,SCREEN_WIDTH,SCREEN_HEIGHT/3);
 		SDL_UpdateWindowSurface(window);
 		
+		//printf("%f", (dLeft.x+ dLeft.w/SCREEN_WIDTH));
 		//Handle Events Here
 		SDL_Event testEvent;
 		
@@ -75,7 +76,7 @@ int main()
                 SDL_Quit();
                 return 0;
             }
-			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= (dLeft.x/SCREEN_WIDTH) && testEvent.tfinger.x <= (dLeft.x+ dLeft.w)/SCREEN_WIDTH)
+			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x*SCREEN_WIDTH >= dLeft.x && testEvent.tfinger.x*SCREEN_WIDTH <= (dLeft.x+ dLeft.w))
 			{
 				dR = 255;
 				dG = 0;
@@ -83,7 +84,7 @@ int main()
 				printf("Red\n");
 				printf("%f\n", testEvent.tfinger.x);
 			}
-			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dCenter.x/SCREEN_WIDTH && testEvent.tfinger.x <= (dCenter.x+ dCenter.w)/SCREEN_WIDTH)
+			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x*SCREEN_WIDTH >= dCenter.x && testEvent.tfinger.x*SCREEN_WIDTH <= (dCenter.x+ dCenter.w))
 			{
 				dR = 0;
 				dG = 255;
@@ -91,7 +92,7 @@ int main()
 				printf("Green\n");
 				printf("%f\n", testEvent.tfinger.x);
 			}
-			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dRight.x/SCREEN_WIDTH && testEvent.tfinger.x <= (dRight.x+ dRight.w)/SCREEN_WIDTH)
+			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x*SCREEN_WIDTH >= dRight.x && testEvent.tfinger.x*SCREEN_WIDTH <= (dRight.x+ dRight.w))
 			{
 				dR = 0;
 				dG = 0;
