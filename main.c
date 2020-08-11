@@ -84,6 +84,7 @@ int main()
 				dR = 255;
 				dG = 0;
 				dB = 0;
+				printf("You have pressed the red side lol");
 			}
 		}
 		SDL_Delay(10);
