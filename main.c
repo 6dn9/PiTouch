@@ -44,9 +44,9 @@ int main()
     renderer = SDL_CreateSoftwareRenderer(screenSurface);
     //SDL_Rect dBackground	= {0,0,SCREEN_WIDTH,SCREEN_HEIGHT};
 	
-    SDL_Rect dLeft		= {0,0,SCREEN_WIDTH/3,SCREEN_HEIGHT};
-    SDL_Rect dCenter	= {(SCREEN_WIDTH/3),0,SCREEN_WIDTH/3,SCREEN_HEIGHT};
-    SDL_Rect dRight		= {((SCREEN_WIDTH/3)*2),0,SCREEN_WIDTH/3,SCREEN_HEIGHT};
+    SDL_Rect dLeft		= {0,0,SCREEN_WIDTH/3,SCREEN_HEIGHT/3};
+    SDL_Rect dCenter	= {(SCREEN_WIDTH/3),0,SCREEN_WIDTH/3,SCREEN_HEIGHT/3};
+    SDL_Rect dRight		= {((SCREEN_WIDTH/3)*2),0,SCREEN_WIDTH/3,SCREEN_HEIGHT/3};
 	
 	int dR = 0;
 	int dG = 0;
@@ -60,8 +60,8 @@ int main()
 		SDL_FillRect(screenSurface, &dLeft, SDL_MapRGBA(screenSurface->format, 255, 0, 0, 0));
 		SDL_FillRect(screenSurface, &dCenter, SDL_MapRGBA(screenSurface->format, 0, 255, 0, 0));
 		SDL_FillRect(screenSurface, &dRight, SDL_MapRGBA(screenSurface->format, 0, 0, 255, 0));
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-		drawBox(renderer, 0,0,32,32);
+		SDL_SetRenderDrawColor(renderer, 250, 250, 250, 0);
+		drawBox(renderer, 0,0,SCREEN_WIDTH,SCREEN_HEIGHT/3);
 		SDL_UpdateWindowSurface(window);
 		
 		//Handle Events Here
@@ -84,6 +84,19 @@ int main()
 				dR = 255;
 				dG = 0;
 				dB = 0;
+				printf("You have pressed the red side lol");
+			}
+			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dCenter.x && testEvent.tfinger.x <= (dCenter.x+ dCenter.w))
+			{
+				dR = 0;
+				dG = 255;
+				dB = 0;
+				printf("You have pressed the red side lol");
+			}if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dRight.x && testEvent.tfinger.x <= (dRight.x+ dRight.w))
+			{
+				dR = 0;
+				dG = 0;
+				dB = 255;
 				printf("You have pressed the red side lol");
 			}
 		}
