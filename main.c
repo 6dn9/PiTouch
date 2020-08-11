@@ -33,7 +33,7 @@ int main()
 		SDL_WINDOWPOS_CENTERED,
 		SCREEN_WIDTH,
 		SCREEN_HEIGHT,
-		0//SDL_WINDOW_FULLSCREEN
+		SDL_WINDOW_FULLSCREEN
     );
     //Initialize Window STUFF
     if(window == NULL){
@@ -75,29 +75,25 @@ int main()
                 SDL_Quit();
                 return 0;
             }
-			//if (testEvent.type == SDL_FINGERDOWN || testEvent.button.button == SDL_BUTTON_LEFT)
-			//{
-				//dR = 255;
-			//}
 			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dLeft.x && testEvent.tfinger.x <= (dLeft.x+ dLeft.w))
 			{
 				dR = 255;
 				dG = 0;
 				dB = 0;
-				printf("You have pressed the red side lol");
+				printf("Red\n");
 			}
 			if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dCenter.x && testEvent.tfinger.x <= (dCenter.x+ dCenter.w))
 			{
 				dR = 0;
 				dG = 255;
 				dB = 0;
-				printf("You have pressed the red side lol");
+				printf("Green\n");
 			}if(testEvent.type == SDL_FINGERDOWN && testEvent.tfinger.x >= dRight.x && testEvent.tfinger.x <= (dRight.x+ dRight.w))
 			{
 				dR = 0;
 				dG = 0;
 				dB = 255;
-				printf("You have pressed the red side lol");
+				printf("Blue\n");
 			}
 		}
 		SDL_Delay(10);
