@@ -1,0 +1,4 @@
+Alright, I found that the finger events are based off of floats that refer to the total "precentage" of the screen.
+
+I'm going to get around this with some chunky math.
+
